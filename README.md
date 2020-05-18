@@ -22,14 +22,14 @@ More can be found [here](https://eos.arista.com/streaming-eos-telemetry-states-t
 
 #### Here is a taget example of BGP Config metrics
 
-root@k8smaster:~ kubectl get nodes -o wide
-NAME        STATUS   ROLES    AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-k8smaster   Ready    master   6d23h   v1.18.2   10.90.224.161   <none>        Ubuntu 18.04.1 LTS   4.15.0-96-generic   docker://19.3.8
-node1       Ready    <none>   6d23h   v1.18.2   10.90.224.162   <none>        Ubuntu 18.04.1 LTS   4.15.0-96-generic   docker://19.3.8
-node2       Ready    <none>   6d23h   v1.18.2   10.90.224.163   <none>        Ubuntu 18.04.1 LTS   4.15.0-96-generic   docker://19.3.8
-root@k8smaster:~# curl 10.90.224.161:30988/metrics
-BgpPfxInstalled2{neighbor="10.50.0.1"} 44
-BgpPfxInstalled2{neighbor="10.60.0.1"} 43
-BgpPfxReceived2{neighbor="10.50.0.1"} 44
-BgpPfxReceived2{neighbor="10.60.0.1"} 43
+> root@k8smaster:~ kubectl get nodes -o wide
+> NAME        STATUS   ROLES    AGE     VERSION   INTERNAL-IP     EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
+> k8smaster   Ready    master   6d23h   v1.18.2   10.90.224.161   <none>        Ubuntu 18.04.1 LTS   4.15.0-96-generic   docker://19.3.8
+> node1       Ready    <none>   6d23h   v1.18.2   10.90.224.162   <none>        Ubuntu 18.04.1 LTS   4.15.0-96-generic   docker://19.3.8
+> node2       Ready    <none>   6d23h   v1.18.2   10.90.224.163   <none>        Ubuntu 18.04.1 LTS   4.15.0-96-generic   docker://19.3.8
+> root@k8smaster:~# curl 10.90.224.161:30988/metrics
+> BgpPfxInstalled2{neighbor="10.50.0.1"} 44
+> BgpPfxInstalled2{neighbor="10.60.0.1"} 43
+> BgpPfxReceived2{neighbor="10.50.0.1"} 44
+> BgpPfxReceived2{neighbor="10.60.0.1"} 43
 
