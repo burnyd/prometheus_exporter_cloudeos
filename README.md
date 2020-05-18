@@ -2,7 +2,7 @@
 
 # Description
 
-![Alt text](images/overall.jpg?raw=true "Prometheus")
+![Alt text](files/overall.jpg?raw=true "Prometheus")
 
 This is a deployment of kubernetes that allows the ocprom container to simply talk to the Arista CloudEOS pods on localhost so that prometheus can scrape each of the kubernetes nodes which has the CloudEOS container on it and see network streaming telemetry related metrics.
 
