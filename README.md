@@ -29,7 +29,7 @@ More can be found [here](https://eos.arista.com/streaming-eos-telemetry-states-t
 > node2       Ready    <none>   6d23h   v1.18.2   10.90.224.163 
 >
 >
-> root@k8smaster:~# curl 10.90.224.161:30988/metrics
+> curl 10.90.224.161:30988/metrics
 > BgpPfxInstalled2{neighbor="10.50.0.1"} 44
 > BgpPfxInstalled2{neighbor="10.60.0.1"} 43
 > BgpPfxReceived2{neighbor="10.50.0.1"} 44
