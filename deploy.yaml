@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ocprom
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: cloudeos
+  template:
+    metadata:
+      labels:
+        app: cloudeos
+        k8s: oc
+    spec:
+      hostNetwork: true
+      nodeSelector:
+         beta.kubernetes.io/os: linux
+
+      containers:
+      - name: ospromsc
+        image: burnyd/ocprom:dev
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: "ADDRESS"
+            value: "0.0.0.0:6030"
+          - name: "USER"
+            value: "arista"
+          - name: "PASSWORD"
+            value: "arista"
+          - name: "LOCATION"
+            value: "/tmp/gnmi.yaml"
+        
+        volumeMounts: 
+        - name: ocprom-configmap
+          mountPath: /ocprom 
+          readOnly: false
+
+      volumes:
+      - name: ocprom-configmap
+        configMap:
+          defaultMode: 0777
+          name: ocprom-configmap
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: ocprom-service
+  namespace: kube-system
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/port:   '9090'
+spec:
+  selector:
+   k8s: oc
+  ports:
+  - name: ocprom
+    nodePort: 30988
+    protocol: TCP
+    port: 8081
+    targetPort: 8081
+  type: NodePort
