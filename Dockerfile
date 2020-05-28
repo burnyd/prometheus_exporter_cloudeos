@@ -9,4 +9,4 @@ WORKDIR /tmp
 
 COPY  . /tmp
 
-ENTRYPOINT ./ocprometheus -config "${LOCATION}" -addr "${ADDRESS}" -username "${USER}"  -password "${PASSWORD}"
+ENTRYPOINT ./ocprometheus -config "${LOCATION}" -addr "${ADDRESS}" -username "${USER}"  -password "${PASSWORD}" -listenaddr 0.0.0.0:8081
