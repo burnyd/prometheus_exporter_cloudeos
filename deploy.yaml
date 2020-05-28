@@ -19,7 +19,7 @@ spec:
 
       containers:
       - name: ospromsc
-        image: burnyd/ocprom:dev
+        image: burnyd/ocprom:latest
         imagePullPolicy: IfNotPresent
         env:
           - name: "ADDRESS"
